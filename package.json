@@ -4,6 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "nodemon src/index.ts",
+    "build": "tsc --build .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npm run lint:commit && npm run lint:eslint",
     "lint:commit": "commitlint --from HEAD~1",

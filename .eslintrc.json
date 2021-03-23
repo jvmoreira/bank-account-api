@@ -15,6 +15,7 @@
   "plugins": [
     "@typescript-eslint"
   ],
+  "ignorePatterns": ["build"],
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "eol-last": ["error", "always"],
