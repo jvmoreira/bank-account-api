@@ -1,4 +1,5 @@
 import { Request, Response, Router } from 'express';
+import { authGuardMiddleware } from './middlewares';
 import { sendSuccessResponse } from './api-response';
 import { AuthController } from './controllers';
 
@@ -9,5 +10,7 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.post('/register', AuthController.register);
+
+router.use(authGuardMiddleware);
 
 export { router };
