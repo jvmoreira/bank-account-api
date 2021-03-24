@@ -1,11 +1,12 @@
 import express, { Request, Response } from 'express';
+import { sendSuccessResponse } from './http';
 
 const app = express();
 app.use(express.json());
 const PORT = 8000;
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({ message: 'API is up and running' });
+  sendSuccessResponse(res, { message: 'API is up and running!', data: {} });
 });
 
 app.listen(PORT, () => {
