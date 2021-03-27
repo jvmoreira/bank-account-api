@@ -1,4 +1,10 @@
 require('dotenv').config();
+import { connectDatabase } from './database';
 import { startServer } from './http';
 
-startServer();
+(async (): Promise<void> => {
+  await connectDatabase();
+
+  startServer();
+})();
+
