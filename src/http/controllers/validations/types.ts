@@ -17,5 +17,6 @@ export interface ValidationError {
 type ErrorCode =
   | 'empty'
   | 'invalid-email'
+  | 'invalid-pattern'
   | 'min-length'
   ;
