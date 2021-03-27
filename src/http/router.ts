@@ -1,7 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { authGuardMiddleware } from './middlewares';
 import { sendSuccessResponse } from './api-response';
-import { AuthController } from './controllers';
+import { AuthController, BankAccountController } from './controllers';
 
 const router = Router();
 
@@ -11,6 +11,8 @@ router.get('/', (req: Request, res: Response) => {
 
 router.post('/register', AuthController.register);
 
-router.use(authGuardMiddleware);
+router.post('/bank-accounts', authGuardMiddleware, BankAccountController.create);
+router.get('/bank-accounts/:id', authGuardMiddleware, BankAccountController.show);
+router.get('/bank-accounts/:id/deactivate', authGuardMiddleware, BankAccountController.deactivate);
 
 export { router };
